@@ -2,10 +2,12 @@ import React from 'react';
 import './App.css';
 import {Accordion} from "./components/Accordion";
 import {Rating} from "./components/Rating/Rating";
+import {OnOff} from "./components/OnOff/OnOff";
 
 function App(props: any) {
     return (
         <div className="App">
+            <OnOff />
             <PageTitle title = {"this is App components"} />
             <PageTitle title = {"My friend"} />
             <Rating value={3}/>
