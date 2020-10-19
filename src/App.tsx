@@ -3,6 +3,7 @@ import './App.css';
 import {OnOff} from "./components/OnOff/OnOff";
 import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
+import {Accordion} from "./components/Accordion/Accordion";
 
 function App(props: any) {
 
@@ -11,18 +12,13 @@ function App(props: any) {
 
     return (
         <div className="App">
-            <OnOff/>
+            <OnOff on={true}/>
             <Rating value={ratingValue} onClick={setRatingValue} />
-            {/*<PageTitle title = {"this is App components"} />*/}
-            {/*<PageTitle title={"My friend"}/>*/}
-
-            {/*<UncontrolledAccordion titleValue={"Menu"}/>*/}
+            <Accordion titleValue={"Menu"}
+                       collapsed={accordionCollapsed}
+                       onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}/>
             <UncontrolledRating/>
             {/*<UncontrolledRating value={1}/>*/}
-            {/*<UncontrolledRating value={2}/>*/}
-            {/*<UncontrolledRating value={3}/>*/}
-            {/*<UncontrolledRating value={4}/>*/}
-            {/*<UncontrolledRating value={5}/>*/}
         </div>
     );
 }
