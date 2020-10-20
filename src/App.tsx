@@ -4,15 +4,18 @@ import {OnOff} from "./components/OnOff/OnOff";
 import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 import {Accordion} from "./components/Accordion/Accordion";
+import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
 
 function App(props: any) {
 
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0);
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true);
+    let [switchOn, setSwitchOn] = useState<boolean>(true);
 
     return (
         <div className="App">
-            <OnOff on={true}/>
+            <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
+            <OnOff on={switchOn} onChange={setSwitchOn}/>
             <Rating value={ratingValue} onClick={setRatingValue} />
             <Accordion titleValue={"Menu"}
                        collapsed={accordionCollapsed}

@@ -2,18 +2,18 @@
 
 type OnOffPropsType = {
     on: boolean
+    onChange: (on: boolean) => void
 }
 
 export function OnOff(props: OnOffPropsType) {
 
-let [on, setOn] = useState(false)
     const onStyle = {
         height: "20px",
         width: "30px",
         border: "1px solid black",
         display: "inline-block",
         padding: "2px",
-        backgroundColor: on? "green" : "white"
+        backgroundColor: props.on? "green" : "white"
     }
     const offStyle = {
         height: "20px",
@@ -21,7 +21,7 @@ let [on, setOn] = useState(false)
         border: "1px solid black",
         display: "inline-block",
         padding: "2px",
-        backgroundColor: on ? "white" : "red"
+        backgroundColor: props.on ? "white" : "red"
     }
     const indicatorStyle = {
         height: "10px",
@@ -30,13 +30,14 @@ let [on, setOn] = useState(false)
         border: "1px solid black",
         display: "inline-block",
         marginLeft: "5px",
-        backgroundColor: on ? "green" : "red"
+        backgroundColor: props.on ? "green" : "red"
     }
+
 
     return (
         <div>
-            <button style={onStyle} onClick={()=>{setOn(true)}}>on</button>
-            <button style={offStyle} onClick={()=>{setOn(false)}}>off</button>
+            <button style={onStyle} onClick={()=>{props.onChange(true)}}>on</button>
+            <button style={offStyle} onClick={()=>{props.onChange(false)}}>off</button>
             <div style={indicatorStyle}></div>
         </div>
     )
