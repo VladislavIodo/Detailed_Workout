@@ -2,11 +2,12 @@
 
 type OnOffPropsType = {
     onChange: (on: boolean) => void
+    defaultOn: boolean
 }
 
 export function UncontrolledOnOff(props: OnOffPropsType) {
 
-let [on, setOn] = useState(false)
+let [on, setOn] = useState(props.defaultOn ? props.defaultOn : false)
     const onStyle = {
         height: "20px",
         width: "30px",

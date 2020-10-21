@@ -14,13 +14,13 @@ function App(props: any) {
 
     return (
         <div className="App">
-            <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
+            <UncontrolledOnOff onChange={setSwitchOn} defaultOn={false}/> {switchOn.toString()}
             <OnOff on={switchOn} onChange={setSwitchOn}/>
             <Rating value={ratingValue} onClick={setRatingValue} />
             <Accordion titleValue={"Menu"}
                        collapsed={accordionCollapsed}
                        onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}/>
-            <UncontrolledRating/>
+            {/*<UncontrolledRating onChange={switchOn}/>*/}
             {/*<UncontrolledRating value={1}/>*/}
         </div>
     );
