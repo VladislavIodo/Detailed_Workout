@@ -13,6 +13,7 @@ function App(props: any) {
     let [switchOn, setSwitchOn] = useState<boolean>(true);
 
     return (
+
         <div className="App">
             <UncontrolledOnOff onChange={setSwitchOn} defaultOn={false}/> {switchOn.toString()}
             <OnOff on={switchOn} onChange={setSwitchOn}/>
